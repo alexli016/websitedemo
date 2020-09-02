@@ -36,10 +36,10 @@
         var bgVideo = $("#bgVideo");
         var windowWidth = $(window).width();
         if (windowWidth < 1200) {
-            bgVideo.attr("src", "videos/Wexford_Mo.mp4");
+            bgVideo.attr("src", "videos/WexfordMo.mp4");
         }
         else {
-            bgVideo.attr("src", "videos/Wexford_De.mp4");
+            bgVideo.attr("src", "videos/WexfordDe.mp4");
         }
     }
 
@@ -57,14 +57,14 @@
         triggerElement: videoLayer,
         triggerHook: 0,
         offset: 0,
-        duration: 12000
+        duration: 9000
     })
         // .addIndicators({ name: "--- videoPlayer" })
         .setPin(videoLayer)
         .addTo(controller);
 
     //Creating Video Animation
-    let accelamount = 0.1;
+    let accelamount = 0.2;
     // to decrease delay effect, increase the number
     let scrollpos = 0;
     let delay = 0;
@@ -123,7 +123,7 @@
 
     // textLayer.overlayText02 pin and scroll up
     let scene5 = new ScrollMagic.Scene({
-        duration: 9000,
+        duration: 5000,
         triggerElement: "#overlay-text-wexford-02",
         triggerHook: 1,
     })
@@ -132,7 +132,7 @@
         .addTo(controller);
 
     let scene6 = new ScrollMagic.Scene({
-        offset: 9000,
+        offset: 5000,
         duration: 2000,
         triggerElement: "#overlay-text-wexford-02",
         triggerHook: 0.6,
