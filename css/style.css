@@ -34,6 +34,7 @@
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+    z-index: 20;
     /* outline: dashed red; */
 }
 
@@ -41,12 +42,11 @@
     position: absolute;
     font-style: normal;
     padding: 5px 5px 5px 5px;
-    opacity: 0.9;
     color: white;
-    background-color: #009bff;
-    border: white solid;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* border: white solid; */
     font-size: 20px;
-    border-radius: 5px;
+    border-radius: 3px;
 }
 
 .text-box last-child {
