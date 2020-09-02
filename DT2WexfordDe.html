@@ -9,9 +9,9 @@
 <!--START OF VIDEO LAYER-->
 <div id="triggerTop"></div>
 <div class="videoLayer">
-    <h1>Medical Expansion in Phoenix</h1>
     <video id="bgVideo" type="video/mp4" preload="auto" playsinline="true">
-        <source src="videos/Wexford_De.mp4">
+        <source src="videos/WexfordDe.mp4" media="(min-width: 1200px)">
+        <source src="videos/WexfordDe.mp4">
     </video>
 </div>
 <!--END OF VIDEO LAYER-->
@@ -30,20 +30,20 @@
 
 <script>
     //For screensize smaller than 1200px, load mobile video
-    window.addEventListener("resize", switchBGVideo);
+    // window.addEventListener("resize", switchBGVideo);
 
-    function switchBGVideo() {
-        var bgVideo = $("#bgVideo");
-        var windowWidth = $(window).width();
-        if (windowWidth < 1200) {
-            bgVideo.attr("src", "videos/WexfordMo.mp4");
-        }
-        else {
-            bgVideo.attr("src", "videos/WexfordDe.mp4");
-        }
-    }
+    // function switchBGVideo() {
+    //     var bgVideo = $("#bgVideo");
+    //     var windowWidth = $(window).width();
+    //     if (windowWidth < 1200) {
+    //         bgVideo.attr("src", "videos/WexfordMo.mp4");
+    //     }
+    //     else {
+    //         bgVideo.attr("src", "videos/WexfordDe.mp4");
+    //     }
+    // }
 
-    switchBGVideo();
+    // switchBGVideo();
     //END OF SECTION
 
     const videoLayer = document.querySelector('.videoLayer');
