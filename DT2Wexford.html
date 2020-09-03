@@ -9,19 +9,20 @@
 <!--START OF VIDEO LAYER-->
 <div id="triggerTop"></div>
 <div class="videoLayer">
-    <h1>Medical Expansion in Phoenix</h1>
     <video id="bgVideo" type="video/mp4" preload="auto" playsinline="true">
-        <source src="">
+        <source src="videos/WexfordDe.mp4" type="video/mp4" media="(min-width: 1200px)">
+        <source id="MayoMoVideo" type="video/mp4" src="videos/WexfordMo.mp4">
     </video>
 </div>
 <!--END OF VIDEO LAYER-->
 
 <!--START OF TEXT LAYER -->
 <div class="text-box-container">
-    <p class="text-box" id="overlay-text-wexford">This is Wexford Science Building, <br>located at 850 N 5th Street,
-        Phoenix, Arizona
-    </p>
-    <p class="text-box" id="overlay-text-wexford-02">This is the front side of the Wexford Building, it has 7 floors</p>
+    <p class="text-box" id="overlay-text-wexford">This is Wexford Science Building, <br>located at 850 N 5th Street. <br>It has 7 floors and 227,113 total rentable square feet.</p>
+    <p class="text-box" id="overlay-text-wexford-02">LabForce and
+        Validation Lab will be located on the first floor</p>
+    <p class="text-box" id="overlay-text-wexford-03">Part of floor 1 to floor 4 will be occupied by Arizona State University</p>
+    <p class="text-box" id="overlay-text-wexford-04">Floor 5 to floor 7 will be fully lab enabled</p>
 </div>
 <!--END OF TEXT LAYER -->
 
@@ -29,23 +30,6 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script>
-    //For screensize smaller than 1200px, load mobile video
-    window.addEventListener("resize", switchBGVideo);
-
-    function switchBGVideo() {
-        var bgVideo = $("#bgVideo");
-        var windowWidth = $(window).width();
-        if (windowWidth < 1200) {
-            bgVideo.attr("src", "videos/WexfordMo.mp4");
-        }
-        else {
-            bgVideo.attr("src", "videos/WexfordDe.mp4");
-        }
-    }
-
-    switchBGVideo();
-    //END OF SECTION
-
     const videoLayer = document.querySelector('.videoLayer');
     const video = videoLayer.querySelector('video');
 
@@ -87,23 +71,9 @@
     }, 1000 / frameRate);
     // video.currentTime indicates the position for the playback of the video, in seconds
 
-    // h1 (Medical Expansion in Phoenix) Animation
-    const h1Title = videoLayer.querySelector('h1');
-    const textAnim = TweenMax.fromTo(h1Title, 3, { opacity: 1 }, { opacity: 0 });
-
-    // textLayer.h1
-    let scene2 = new ScrollMagic.Scene({
-        duration: 800,
-        triggerElement: videoLayer,
-        triggerHook: 0
-    })
-        .setTween(textAnim)
-        // .addIndicators({ name: "--- h1 Title" })
-        .addTo(controller);
-
     // textLayer.overlayText01 pin and scroll up
     let scene3 = new ScrollMagic.Scene({
-        duration: 4630,
+        duration: 2700,
         triggerElement: "#overlay-text-wexford",
         triggerHook: 1,
     })
@@ -112,8 +82,8 @@
         .addTo(controller);
 
     let scene4 = new ScrollMagic.Scene({
-        offset: 4630,
-        duration: 2000,
+        offset: 2700,
+        duration: 1000,
         triggerElement: "#overlay-text-wexford",
         triggerHook: 0.4,
     })
@@ -133,11 +103,51 @@
 
     let scene6 = new ScrollMagic.Scene({
         offset: 5000,
-        duration: 2000,
+        duration: 1200,
         triggerElement: "#overlay-text-wexford-02",
         triggerHook: 0.6,
     })
         //.addIndicators({ name: "--- overlay-text-wexford-02" })
         .setPin('#overlay-text-wexford-02')
+        .addTo(controller);
+
+    // textLayer.overlayText03 pin and scroll up
+    let scene7 = new ScrollMagic.Scene({
+        duration: 6500,
+        triggerElement: "#overlay-text-wexford-03",
+        triggerHook: 1,
+    })
+        //.addIndicators({ name: "--- overlay-text-02" })
+        .setPin('#overlay-text-wexford-03')
+        .addTo(controller);
+
+    let scene8 = new ScrollMagic.Scene({
+        offset: 6500,
+        duration: 1000,
+        triggerElement: "#overlay-text-wexford-03",
+        triggerHook: 0.6,
+    })
+        //.addIndicators({ name: "--- overlay-text-wexford-02" })
+        .setPin('#overlay-text-wexford-03')
+        .addTo(controller);
+
+    // textLayer.overlayText03 pin and scroll up
+    let scene9 = new ScrollMagic.Scene({
+        duration: 8000,
+        triggerElement: "#overlay-text-wexford-04",
+        triggerHook: 1,
+    })
+        //.addIndicators({ name: "--- overlay-text-02" })
+        .setPin('#overlay-text-wexford-04')
+        .addTo(controller);
+
+    let scene10 = new ScrollMagic.Scene({
+        offset: 8000,
+        duration: 1000,
+        triggerElement: "#overlay-text-wexford-04",
+        triggerHook: 0.6,
+    })
+        //.addIndicators({ name: "--- overlay-text-wexford-02" })
+        .setPin('#overlay-text-wexford-04')
         .addTo(controller);
 </script>

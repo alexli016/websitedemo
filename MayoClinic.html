@@ -9,19 +9,23 @@
 <!--START OF VIDEO LAYER-->
 <div id="triggerTop"></div>
 <div class="videoLayer">
-    <h1>Medical Expansion in Phoenix</h1>
-    <video id="bgVideo" type="video/mp4" preload="auto" playsinline="true">
-        <source src="">
+    <video id="bgVideo" preload="auto" playsinline="true">
+        <source id="MayoDeVideo" src="videos/MayoDe.mp4" type="video/mp4" media="(min-width: 1200px)">
+        <source id="MayoMoVideo" src="videos/MayoMo.mp4" type="video/mp4">
     </video>
 </div>
 <!--END OF VIDEO LAYER-->
 
 <!--START OF TEXT LAYER -->
 <div class="text-box-container">
-    <p class="text-box" id="overlay-text-wexford">This is Wexford Science Building, <br>located at 850 N 5th Street,
-        Phoenix, Arizona
+    <p class="text-box" id="overlay-text-mayo">This is New Mayo Clinic Outpatient Enrtance. <br> Six-story patient tower
+        featuring new patient rooms, <br>clinical and rehab space and an outpatient surgical center
     </p>
-    <p class="text-box" id="overlay-text-wexford-02">This is the front side of the Wexford Building, it has 7 floors</p>
+    <p class="text-box" id="overlay-text-mayo-02">This is New Mayo Clinic Emergency Enrtance <br> Three-story building
+        to house expanded Emergency Department, <br>Laboratory Medicine, Radiology and Pharmacy</p>
+    <p class="text-box" id="overlay-text-mayo-03">
+        Mayo Clinic Building will grow from three to seven stories for current and future clinical services
+    </p>
 </div>
 <!--END OF TEXT LAYER -->
 
@@ -29,23 +33,6 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script>
-    //For screensize smaller than 1200px, load mobile video
-    window.addEventListener("resize", switchBGVideo);
-
-    function switchBGVideo() {
-        var bgVideo = $("#bgVideo");
-        var windowWidth = $(window).width();
-        if (windowWidth < 1200) {
-            bgVideo.attr("src", "videos/WexfordMo.mp4");
-        }
-        else {
-            bgVideo.attr("src", "videos/WexfordDe.mp4");
-        }
-    }
-
-    switchBGVideo();
-    //END OF SECTION
-
     const videoLayer = document.querySelector('.videoLayer');
     const video = videoLayer.querySelector('video');
 
@@ -57,7 +44,7 @@
         triggerElement: videoLayer,
         triggerHook: 0,
         offset: 0,
-        duration: 9000
+        duration: 13000
     })
         // .addIndicators({ name: "--- videoPlayer" })
         .setPin(videoLayer)
@@ -85,59 +72,65 @@
         video.currentTime = delay;
         console.log('video current time =' + video.currentTime);
     }, 1000 / frameRate);
-    // video.currentTime indicates the position for the playback of the video, in seconds
-
-    // h1 (Medical Expansion in Phoenix) Animation
-    const h1Title = videoLayer.querySelector('h1');
-    const textAnim = TweenMax.fromTo(h1Title, 3, { opacity: 1 }, { opacity: 0 });
-
-    // textLayer.h1
-    let scene2 = new ScrollMagic.Scene({
-        duration: 800,
-        triggerElement: videoLayer,
-        triggerHook: 0
-    })
-        .setTween(textAnim)
-        // .addIndicators({ name: "--- h1 Title" })
-        .addTo(controller);
 
     // textLayer.overlayText01 pin and scroll up
     let scene3 = new ScrollMagic.Scene({
-        duration: 4630,
-        triggerElement: "#overlay-text-wexford",
+        duration: 5000,
+        triggerElement: "#overlay-text-mayo",
         triggerHook: 1,
     })
-        // .addIndicators({ name: "--- Wexford Layer" })
-        .setPin('#overlay-text-wexford')
+        //.addIndicators({ name: "--- Mayo Layer" })
+        .setPin('#overlay-text-mayo')
         .addTo(controller);
 
     let scene4 = new ScrollMagic.Scene({
-        offset: 4630,
-        duration: 2000,
-        triggerElement: "#overlay-text-wexford",
-        triggerHook: 0.4,
+        offset: 5000,
+        duration: 1200,
+        triggerElement: "#overlay-text-mayo",
+        triggerHook: 0.6,
     })
         //.addIndicators({ name: "--- scene 5 Wexford Layer" })
-        .setPin('#overlay-text-wexford')
+        .setPin('#overlay-text-mayo')
         .addTo(controller);
 
     // textLayer.overlayText02 pin and scroll up
     let scene5 = new ScrollMagic.Scene({
-        duration: 5000,
-        triggerElement: "#overlay-text-wexford-02",
+        duration: 7300,
+        triggerElement: "#overlay-text-mayo-02",
         triggerHook: 1,
     })
         //.addIndicators({ name: "--- overlay-text-02" })
-        .setPin('#overlay-text-wexford-02')
+        .setPin('#overlay-text-mayo-02')
         .addTo(controller);
 
     let scene6 = new ScrollMagic.Scene({
-        offset: 5000,
-        duration: 2000,
-        triggerElement: "#overlay-text-wexford-02",
+        offset: 7300,
+        duration: 1200,
+        triggerElement: "#overlay-text-mayo-02",
         triggerHook: 0.6,
     })
         //.addIndicators({ name: "--- overlay-text-wexford-02" })
-        .setPin('#overlay-text-wexford-02')
+        .setPin('#overlay-text-mayo-02')
         .addTo(controller);
+
+    //textLayer.overlayText03 pin and scroll up
+    let scene7 = new ScrollMagic.Scene({
+        duration: 9700,
+        triggerElement: "#overlay-text-mayo-03",
+        triggerHook: 1,
+    })
+        //.addIndicators({ name: "--- overlay-text-02" })
+        .setPin('#overlay-text-mayo-03')
+        .addTo(controller);
+
+    let scene8 = new ScrollMagic.Scene({
+        offset: 9700,
+        duration: 2000,
+        triggerElement: "#overlay-text-mayo-03",
+        triggerHook: 0.6,
+    })
+        //.addIndicators({ name: "--- overlay-text-wexford-02" })
+        .setPin('#overlay-text-mayo-03')
+        .addTo(controller);
+
 </script>

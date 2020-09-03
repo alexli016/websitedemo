@@ -64,12 +64,27 @@
     top: 100%;
 }
 
-#overlay-text-creighton {
+#overlay-text-wexford-03 {
     right: 10%;
     top: 100%;
 }
 
-#overlay-text-creighton-02 {
+#overlay-text-wexford-04 {
     left: 50%;
+    top: 100%;
+}
+
+#overlay-text-mayo {
+    right: 10%;
+    top: 100%;
+}
+
+#overlay-text-mayo-02 {
+    right: 10%;
+    top: 100%;
+}
+
+#overlay-text-mayo-03 {
+    right: 10%;
     top: 100%;
 }
