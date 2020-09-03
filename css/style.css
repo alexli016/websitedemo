@@ -26,7 +26,7 @@
     /* outline: dashed orange; */
 }
 
-.videoLayer h1 {
+/* .videoLayer h1 {
     margin: 0;
     position: absolute;
     font-size: 80px;
@@ -35,8 +35,8 @@
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 20;
-    /* outline: dashed red; */
-}
+    /* outline: dashed red;
+} */
 
 .text-box {
     position: absolute;
