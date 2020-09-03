@@ -8,8 +8,8 @@
 
 <!--START OF VIDEO LAYER-->
 <div id="triggerTop"></div>
-<div class="videoLayer">
-    <video id="bgVideo" type="video/mp4" preload="auto" playsinline="true">
+<div class="videoLayer-wexford">
+    <video id="bgVideo-wexford" type="video/mp4" preload="auto" playsinline="true">
         <source src="videos/WexfordDe.mp4" type="video/mp4" media="(min-width: 1200px)">
         <source id="MayoMoVideo" type="video/mp4" src="videos/WexfordMo.mp4">
     </video>
@@ -30,21 +30,21 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script>
-    const videoLayer = document.querySelector('.videoLayer');
-    const video = videoLayer.querySelector('video');
+    const videoLayerWexford = document.querySelector('.videoLayer-wexford');
+    const videoWexford = videoLayerWexford.querySelector('video');
 
     // init controller
     let controller = new ScrollMagic.Controller();
 
     // build video scene
     let scene = new ScrollMagic.Scene({
-        triggerElement: videoLayer,
+        triggerElement: videoLayerWexford,
         triggerHook: 0,
         offset: 0,
         duration: 9000
     })
         // .addIndicators({ name: "--- videoPlayer" })
-        .setPin(videoLayer)
+        .setPin(videoLayerWexford)
         .addTo(controller);
 
     //Creating Video Animation
@@ -66,8 +66,8 @@
         delay += (scrollpos - delay) * accelamount;
         console.log(scrollpos, delay);
 
-        video.currentTime = delay;
-        console.log('video current time =' + video.currentTime);
+        videoWexford.currentTime = delay;
+        console.log('video current time =' + videoWexford.currentTime);
     }, 1000 / frameRate);
     // video.currentTime indicates the position for the playback of the video, in seconds
 

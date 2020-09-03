@@ -8,8 +8,8 @@
 
 <!--START OF VIDEO LAYER-->
 <div id="triggerTop"></div>
-<div class="videoLayer">
-    <video id="bgVideo" preload="auto" playsinline="true">
+<div class="videoLayer-mayo">
+    <video id="bgVideo-mayo" preload="auto" playsinline="true">
         <source id="MayoDeVideo" src="videos/MayoDe.mp4" type="video/mp4" media="(min-width: 1200px)">
         <source id="MayoMoVideo" src="videos/MayoMo.mp4" type="video/mp4">
     </video>
@@ -33,21 +33,21 @@
 <link rel="stylesheet" type="text/css" href="css/style.css">
 
 <script>
-    const videoLayer = document.querySelector('.videoLayer');
-    const video = videoLayer.querySelector('video');
+    const videoLayerMayo = document.querySelector('.videoLayer-mayo');
+    const videoMayo = videoLayerMayo.querySelector('video');
 
     // init controller
     let controller = new ScrollMagic.Controller();
 
     // build video scene
     let scene = new ScrollMagic.Scene({
-        triggerElement: videoLayer,
+        triggerElement: videoLayerMayo,
         triggerHook: 0,
         offset: 0,
         duration: 13000
     })
         // .addIndicators({ name: "--- videoPlayer" })
-        .setPin(videoLayer)
+        .setPin(videoLayerMayo)
         .addTo(controller);
 
     //Creating Video Animation
@@ -69,8 +69,8 @@
         delay += (scrollpos - delay) * accelamount;
         console.log(scrollpos, delay);
 
-        video.currentTime = delay;
-        console.log('video current time =' + video.currentTime);
+        videoMayo.currentTime = delay;
+        console.log('video current time =' + videoMayo.currentTime);
     }, 1000 / frameRate);
 
     // textLayer.overlayText01 pin and scroll up
