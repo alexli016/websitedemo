@@ -6,13 +6,33 @@
     scroll-behavior: smooth;
 } */
 
-.videoLayer {
+.videoLayer-mayo {
     height: 100%;
     width: 100%;
     z-index: -20;
 }
 
-.videoLayer video {
+.videoLayer-wexford {
+    height: 100%;
+    width: 100%;
+    z-index: -20;
+}
+
+.videoLayer-mayo video {
+    /* object-fit: cover;
+    min-height: 100%;
+    min-width: 100%;
+    transform: translate(-50%, -50%); */
+    left: 50%;
+    min-height: 100%;
+    min-width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    /* outline: dashed orange; */
+}
+
+.videoLayer-wexford video {
     /* object-fit: cover;
     min-height: 100%;
     min-width: 100%;
