@@ -1,3 +1,5 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <!--Start of external scripts-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -7,32 +9,58 @@
 <!--End of external scripts-->
 
 <!-- Steyle Sheet -->
-<link rel="stylesheet" type="text/css" href="css/style.css">
+<link rel="stylesheet" type="text/css" href="css/phxMediExpanStyle.css">
 
+
+<div id="mayo-wrapper">
 <!--START OF VIDEO LAYER-->
-<div id="triggerTop"></div>
 <div class="videoLayer-mayo">
-    <video id="bgVideo-mayo" preload="auto" playsinline="true">
-        <source id="MayoDeVideo" src="videos/MayoDe.mp4" type="video/mp4" media="(min-width: 1200px)">
-        <source id="MayoMoVideo" src="videos/MayoMo.mp4" type="video/mp4">
+    <video id="bgVideo-mayo" muted preload="auto" playsinline autoplay> 
+        <source id="MayoDeVideo" src="" type="video/mp4">
     </video>
 </div>
 <!--END OF VIDEO LAYER-->
 
+
 <!--START OF TEXT LAYER -->
-<div class="text-box-container">
-    <p class="text-box" id="overlay-text-mayo">This is New Mayo Clinic Outpatient Enrtance. <br> Six-story patient tower
-        featuring new patient rooms, <br>clinical and rehab space and an outpatient surgical center
+<div class="mayo-text-box-container">
+    <p class="mayo-text-box" id="overlay-text-mayo">This new hospital is being built at their existing Phoenix location <br>on 5777 E Mayo Boulevard
     </p>
-    <p class="text-box" id="overlay-text-mayo-02">This is New Mayo Clinic Emergency Enrtance <br> Three-story building
-        to house expanded Emergency Department, <br>Laboratory Medicine, Radiology and Pharmacy</p>
-    <p class="text-box" id="overlay-text-mayo-03">
-        Mayo Clinic Building will grow from three to seven stories for current and future clinical services
+    <p class="mayo-text-box" id="overlay-text-mayo-02">Mayo Clinic is building an additional 1.6 million square feet of
+        hospital space, <br>which executives say it will add
+        roughly 2,000 new jobs.</p>
+    <p class="mayo-text-box" id="overlay-text-mayo-03">
+        The new buildings will feature innovative technology and modern equipment <br>such as using robotics to deliver
+        items or
+        take out biohazard bags.
     </p>
+    <p class="mayo-text-box" id="overlay-text-mayo-04">
+        These expansions will allow Mayo to conduct a “sizeable breadth” of research <br>according to Richard Gray, the CEO of the Mayo Clinic in Arizona.
+    </p>
+
 </div>
 <!--END OF TEXT LAYER -->
 
+</div>
+
 <script>
+    //For screensize smaller than 1200px, load mobile video
+        window.addEventListener("resize", switchBGVideo);
+
+        function switchBGVideo() {
+            var bgVideo = $("#bgVideo-mayo");
+            var windowWidth = $(window).width();
+            if (windowWidth < 1200) {
+                bgVideo.attr("src", "videos/MayoMo.mp4");
+            }
+            else {
+                bgVideo.attr("src", "videos//MayoDe.mp4");
+            }
+        }
+
+        switchBGVideo();
+    //END OF SECTION
+
     const videoLayerMayo = document.querySelector('.videoLayer-mayo');
     const videoMayo = videoLayerMayo.querySelector('video');
 
@@ -40,14 +68,14 @@
     let controller = new ScrollMagic.Controller();
 
     // build video scene
-    let scene = new ScrollMagic.Scene({
+    let Mayoscene = new ScrollMagic.Scene({
         triggerElement: videoLayerMayo,
         triggerHook: 0,
         offset: 0,
-        duration: 13000
+        duration: 14000
     })
-        // .addIndicators({ name: "--- videoPlayer" })
-        .setPin(videoLayerMayo)
+        //.addIndicators({ name: "--- video Player" })
+        .setPin(".videoLayer-mayo")
         .addTo(controller);
 
     //Creating Video Animation
@@ -57,7 +85,7 @@
     let delay = 0;
     let frameRate = 30;
 
-    scene.on('update', e => {
+    Mayoscene.on('update', e => {
         scrollpos = e.scrollPos / 1000;
         //video.currentTime = e.scrollPos * (video duration/duration)
         console.log("e.scrollPos / 1000 =" + e.scrollPos / 1000);
@@ -74,8 +102,8 @@
     }, 1000 / frameRate);
 
     // textLayer.overlayText01 pin and scroll up
-    let scene3 = new ScrollMagic.Scene({
-        duration: 5000,
+    let Mayoscene3 = new ScrollMagic.Scene({
+        duration: 4100,
         triggerElement: "#overlay-text-mayo",
         triggerHook: 1,
     })
@@ -83,18 +111,18 @@
         .setPin('#overlay-text-mayo')
         .addTo(controller);
 
-    let scene4 = new ScrollMagic.Scene({
-        offset: 5000,
+    let Mayoscene4 = new ScrollMagic.Scene({
+        offset: 4100,
         duration: 1200,
         triggerElement: "#overlay-text-mayo",
         triggerHook: 0.6,
     })
-        //.addIndicators({ name: "--- scene 5 Wexford Layer" })
+        //.addIndicators({ name: "--- Mayo Scene 4" })
         .setPin('#overlay-text-mayo')
         .addTo(controller);
 
     // textLayer.overlayText02 pin and scroll up
-    let scene5 = new ScrollMagic.Scene({
+    let Mayoscene5 = new ScrollMagic.Scene({
         duration: 7300,
         triggerElement: "#overlay-text-mayo-02",
         triggerHook: 1,
@@ -103,7 +131,7 @@
         .setPin('#overlay-text-mayo-02')
         .addTo(controller);
 
-    let scene6 = new ScrollMagic.Scene({
+    let Mayoscene6 = new ScrollMagic.Scene({
         offset: 7300,
         duration: 1200,
         triggerElement: "#overlay-text-mayo-02",
@@ -114,8 +142,8 @@
         .addTo(controller);
 
     //textLayer.overlayText03 pin and scroll up
-    let scene7 = new ScrollMagic.Scene({
-        duration: 9700,
+    let Mayoscene7 = new ScrollMagic.Scene({
+        duration: 10000,
         triggerElement: "#overlay-text-mayo-03",
         triggerHook: 1,
     })
@@ -123,8 +151,8 @@
         .setPin('#overlay-text-mayo-03')
         .addTo(controller);
 
-    let scene8 = new ScrollMagic.Scene({
-        offset: 9700,
+    let Mayoscene8 = new ScrollMagic.Scene({
+        offset: 10000,
         duration: 2000,
         triggerElement: "#overlay-text-mayo-03",
         triggerHook: 0.6,
@@ -132,4 +160,25 @@
         //.addIndicators({ name: "--- overlay-text-wexford-02" })
         .setPin('#overlay-text-mayo-03')
         .addTo(controller);
+    
+    //textLayer.overlayText04 pin and scroll up
+    let Mayoscene9 = new ScrollMagic.Scene({
+        duration: 14000,
+        triggerElement: "#overlay-text-mayo-04",
+        triggerHook: 1,
+    })
+        //.addIndicators({ name: "--- overlay-text-02" })
+        .setPin('#overlay-text-mayo-04')
+        .addTo(controller);
+
+    let Mayoscene10 = new ScrollMagic.Scene({
+        offset: 14000,
+        duration: 2000,
+        triggerElement: "#overlay-text-mayo-04",
+        triggerHook: 0.6,
+    })
+        //.addIndicators({ name: "--- overlay-text-wexford-02" })
+        .setPin('#overlay-text-mayo-04')
+        .addTo(controller);
+
 </script>
