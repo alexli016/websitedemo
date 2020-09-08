@@ -12,62 +12,58 @@
 <link rel="stylesheet" type="text/css" href="css/phxMediExpanStyle.css">
 
 
-<div id="mayo-wrapper">
-<!--START OF VIDEO LAYER-->
-<div class="videoLayer-mayo">
-    <video id="bgVideo-mayo" autoplay muted preload="auto" playsinline> 
-        <source id="MayoDeVideo" src="" type="video/mp4">
-    </video>
-</div>
-<!--END OF VIDEO LAYER-->
+    <!--START OF VIDEO LAYER-->
+    <div class="videoLayer-mayo">
+        <video id="bgVideo-mayo" preload="auto" autoplay playsinline muted>
+            <source id="MayoDeVideo" src="" type="video/mp4">
+        </video>
+    </div>
+    <!--END OF VIDEO LAYER-->
 
 
-<!--START OF TEXT LAYER -->
-<div class="mayo-text-box-container">
-    <p class="mayo-text-box" id="overlay-text-mayo">This new hospital is being built at their existing Phoenix location <br>on 5777 E Mayo Boulevard
-    </p>
-    <p class="mayo-text-box" id="overlay-text-mayo-02">Mayo Clinic is building an additional 1.6 million square feet of
-        hospital space, <br>which executives say it will add
-        roughly 2,000 new jobs.</p>
-    <p class="mayo-text-box" id="overlay-text-mayo-03">
-        The new buildings will feature innovative technology and modern equipment <br>such as using robotics to deliver
-        items or
-        take out biohazard bags.
-    </p>
-    <p class="mayo-text-box" id="overlay-text-mayo-04">
-        These expansions will allow Mayo to conduct a “sizeable breadth” of research <br>according to Richard Gray, the CEO of the Mayo Clinic in Arizona.
-    </p>
+    <!--START OF TEXT LAYER -->
+    <div class="mayo-text-box-container">
+        <p class="mayo-text-box" id="overlay-text-mayo">This new hospital is being built at their existing Phoenix
+            location <br>on 5777 E Mayo Boulevard
+        </p>
+        <p class="mayo-text-box" id="overlay-text-mayo-02">Mayo Clinic is building an additional 1.6 million square feet
+            of
+            hospital space, <br>which executives say it will add
+            roughly 2,000 new jobs.</p>
+        <p class="mayo-text-box" id="overlay-text-mayo-03">
+            The new buildings will feature innovative technology and modern equipment <br>such as using robotics to
+            deliver
+            items or
+            take out biohazard bags.
+        </p>
+        <p class="mayo-text-box" id="overlay-text-mayo-04">
+            These expansions will allow Mayo to conduct a “sizeable breadth” of research <br>according to Richard Gray,
+            the CEO of the Mayo Clinic in Arizona.
+        </p>
 
-</div>
-<!--END OF TEXT LAYER -->
-
-</div>
+    </div>
+    <!--END OF TEXT LAYER -->
 
 <script>
     //For screensize smaller than 1200px, load mobile video
-        window.addEventListener("resize", switchBGVideo);
+    window.addEventListener("resize", switchBGVideo);
 
-        function switchBGVideo() {
-            var bgVideo = $("#bgVideo-mayo");
-            var windowWidth = $(window).width();
-            if (windowWidth < 1200) {
-                bgVideo.attr("src", "videos/MayoMo.mp4");
-            }
-            else {
-                bgVideo.attr("src", "videos//MayoDe.mp4");
-            }
+    function switchBGVideo() {
+        var bgVideo = $("#bgVideo-mayo");
+        var windowWidth = $(window).width();
+        if (windowWidth < 1200) {
+            bgVideo.attr("src", "videos/MayoMo.mp4");
         }
+        else {
+            bgVideo.attr("src", "videos//MayoDe.mp4");
+        }
+    }
 
-        switchBGVideo();
+    switchBGVideo();
     //END OF SECTION
 
     const videoLayerMayo = document.querySelector('.videoLayer-mayo');
     const videoMayo = videoLayerMayo.querySelector('video');
-
-    function pauseMayoVid () {
-        videoMayo.pause();
-    }
-    pauseMayoVid();
 
     // init controller
     let controller = new ScrollMagic.Controller();
@@ -165,7 +161,7 @@
         //.addIndicators({ name: "--- overlay-text-wexford-02" })
         .setPin('#overlay-text-mayo-03')
         .addTo(controller);
-    
+
     //textLayer.overlayText04 pin and scroll up
     let Mayoscene9 = new ScrollMagic.Scene({
         duration: 14000,
@@ -186,4 +182,10 @@
         .setPin('#overlay-text-mayo-04')
         .addTo(controller);
 
+    function pauseMayoVid() {
+        videoMayo.pause();
+        console.log("mayo video pause")
+    }
+    
+    pauseMayoVid();
 </script>

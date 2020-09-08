@@ -12,7 +12,7 @@
 <link rel="stylesheet" type="text/css" href="css/phxMediExpanStyle.css">
 
 
-<div id="wexford-wrapper">
+
     <!--START OF VIDEO LAYER-->
     <div class="videoLayer-wexford">
         <video muted playsinline id="bgVideo-wexford">
@@ -50,7 +50,7 @@
     <p class="text-box-wex" id="overlay-text-wexford-08"></p> -->
     </div>
     <!--END OF TEXT LAYER -->
-</div>
+
 
 <script>
     //For screensize smaller than 1200px, load mobile video
@@ -72,11 +72,6 @@
 
     const videoLayerWexford = document.querySelector('.videoLayer-wexford');
     const videoWexford = videoLayerWexford.querySelector('video');
-
-    function pauseWexfordVid () {
-        videoWexford.pause();
-    }
-    pauseWexfordVid();
 
     // init controller
     let controller = new ScrollMagic.Controller();
@@ -235,5 +230,11 @@
         //.addIndicators({ name: "--- overlay-text-wexford-02" })
         .setPin('#overlay-text-wexford-06')
         .addTo(controller);
+
+    function pauseWexfordVid() {
+        videoWexford.pause();
+        console.log("video pause")
+    }
+    pauseWexfordVid();
 
 </script>

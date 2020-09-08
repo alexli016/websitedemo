@@ -76,6 +76,7 @@
     margin-bottom: 0;
 }
 
+/* desktop version */
 @media screen and (min-width: 1201px) {
     .mayo-text-box {
         width: max-content;
@@ -91,6 +92,7 @@
     }
 }
 
+/* mobile version */
 @media screen and (max-width: 1200px) {
     .mayo-text-box {
         width: max-content;
