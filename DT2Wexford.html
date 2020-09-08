@@ -15,7 +15,7 @@
 <div id="wexford-wrapper">
     <!--START OF VIDEO LAYER-->
     <div class="videoLayer-wexford">
-        <video muted playsinline autoplay="autoplay" id="bgVideo-wexford">
+        <video muted playsinline autoplay id="bgVideo-wexford">
             <source id="WexfordVideo" src="" type="video/mp4">
         </video>
     </div>
@@ -75,8 +75,6 @@
     const videoLayerWexford = document.querySelector('.videoLayer-wexford');
     const videoWexford = videoLayerWexford.querySelector('video');
 
-    videoWexford.pause();
-
     // init controller
     let controller = new ScrollMagic.Controller();
 
@@ -104,6 +102,8 @@
         console.log("e.scrollPos / 1000 =" + e.scrollPos / 1000);
         console.log("scrollPos =" + e.scrollPos);
         //e.scrollPos comes from Scroll Magic and it is connect with the duration
+
+        videoWexford.pause();
     });
 
     setInterval(() => {
