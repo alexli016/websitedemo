@@ -15,7 +15,7 @@
 <div id="mayo-wrapper">
 <!--START OF VIDEO LAYER-->
 <div class="videoLayer-mayo">
-    <video id="bgVideo-mayo" muted preload="auto" playsinline> 
+    <video id="bgVideo-mayo" autoplay muted preload="auto" playsinline> 
         <source id="MayoDeVideo" src="" type="video/mp4">
     </video>
 </div>
@@ -63,6 +63,11 @@
 
     const videoLayerMayo = document.querySelector('.videoLayer-mayo');
     const videoMayo = videoLayerMayo.querySelector('video');
+
+    function pauseMayoVid () {
+        videoMayo.pause();
+    }
+    pauseMayoVid();
 
     // init controller
     let controller = new ScrollMagic.Controller();
