@@ -80,7 +80,7 @@
     .mayo-text-box {
         width: max-content;
         font-size: 24px;
-        left: 5%;
+        left: 50%;
         top: 100%;
     }
     .wex-text-box {
@@ -102,7 +102,7 @@
     .wex-text-box {
         width: max-content;
         font-size: 10px;
-        left: 50%;
+        left: 5%;
         top: 100%;
     }
 }
