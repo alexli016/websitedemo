@@ -15,7 +15,7 @@
 <div id="wexford-wrapper">
     <!--START OF VIDEO LAYER-->
     <div class="videoLayer-wexford">
-        <video muted playsinline autoplay id="bgVideo-wexford">
+        <video muted playsinline autoplay="autoplay" id="bgVideo-wexford">
             <source id="WexfordVideo" src="" type="video/mp4">
         </video>
     </div>
@@ -54,6 +54,7 @@
 </div>
 
 <script>
+
     //For screensize smaller than 1200px, load mobile video
     window.addEventListener("resize", switchBGVideo);
 
@@ -73,6 +74,8 @@
 
     const videoLayerWexford = document.querySelector('.videoLayer-wexford');
     const videoWexford = videoLayerWexford.querySelector('video');
+
+    videoWexford.pause();
 
     // init controller
     let controller = new ScrollMagic.Controller();
@@ -231,12 +234,4 @@
         //.addIndicators({ name: "--- overlay-text-wexford-02" })
         .setPin('#overlay-text-wexford-06')
         .addTo(controller);
-
-    function pauseWexfordVid() {
-        videoWexford.pause();
-        console.log("wexford video pause")
-    }
-
-    pauseWexfordVid();
-
 </script>
