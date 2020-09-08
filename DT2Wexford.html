@@ -103,7 +103,7 @@
         console.log("scrollPos =" + e.scrollPos);
         //e.scrollPos comes from Scroll Magic and it is connect with the duration
 
-        videoWexford.pause();
+        setPlaySpeed ();
     });
 
     setInterval(() => {
@@ -234,4 +234,12 @@
         //.addIndicators({ name: "--- overlay-text-wexford-02" })
         .setPin('#overlay-text-wexford-06')
         .addTo(controller);
+
+    function setPlaySpeed() {
+        videoWexford.defaultPlaybackRate = 0;
+        videoWexford.pause();
+        alert("play back rate is 0")
+    } 
+
+    
 </script>
