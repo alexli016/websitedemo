@@ -12,9 +12,10 @@
 <link rel="stylesheet" type="text/css" href="css/phxMediExpanStyle.css">
 
 
+<div id="mayo-wrapper">
     <!--START OF VIDEO LAYER-->
     <div class="videoLayer-mayo">
-        <video id="bgVideo-mayo" preload="auto" autoplay playsinline muted>
+        <video id="bgVideo-mayo" muted preload="auto" playsinline autoplay>
             <source id="MayoDeVideo" src="" type="video/mp4">
         </video>
     </div>
@@ -23,26 +24,28 @@
 
     <!--START OF TEXT LAYER -->
     <div class="mayo-text-box-container">
-        <p class="mayo-text-box" id="overlay-text-mayo">This new hospital is being built at their existing Phoenix
-            location <br>on 5777 E Mayo Boulevard
+        <p class="mayo-text-box" id="overlay-text-mayo"><span>This new hospital is being built at their existing Phoenix
+            location on 5777 E Mayo Boulevard</span>
         </p>
-        <p class="mayo-text-box" id="overlay-text-mayo-02">Mayo Clinic is building an additional 1.6 million square feet
+        <p class="mayo-text-box" id="overlay-text-mayo-02"><span>Mayo Clinic is building an additional 1.6 million square feet
             of
-            hospital space, <br>which executives say it will add
-            roughly 2,000 new jobs.</p>
-        <p class="mayo-text-box" id="overlay-text-mayo-03">
-            The new buildings will feature innovative technology and modern equipment <br>such as using robotics to
+            hospital space, which executives say it will add
+            roughly 2,000 new jobs.</span></p>
+        <p class="mayo-text-box" id="overlay-text-mayo-03"><span>
+            The new buildings will feature innovative technology and modern equipment such as using robotics to
             deliver
             items or
-            take out biohazard bags.
+            take out biohazard bags.</span>
         </p>
-        <p class="mayo-text-box" id="overlay-text-mayo-04">
-            These expansions will allow Mayo to conduct a “sizeable breadth” of research <br>according to Richard Gray,
-            the CEO of the Mayo Clinic in Arizona.
+        <p class="mayo-text-box" id="overlay-text-mayo-04"><span>
+            These expansions will allow Mayo to conduct a “sizeable breadth” of research according to Richard Gray,
+            the CEO of the Mayo Clinic in Arizona.</span>
         </p>
 
     </div>
     <!--END OF TEXT LAYER -->
+
+</div>
 
 <script>
     //For screensize smaller than 1200px, load mobile video
@@ -186,6 +189,6 @@
         videoMayo.pause();
         console.log("mayo video pause")
     }
-    
+
     pauseMayoVid();
 </script>

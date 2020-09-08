@@ -12,10 +12,10 @@
 <link rel="stylesheet" type="text/css" href="css/phxMediExpanStyle.css">
 
 
-
+<div id="wexford-wrapper">
     <!--START OF VIDEO LAYER-->
     <div class="videoLayer-wexford">
-        <video muted playsinline id="bgVideo-wexford">
+        <video muted playsinline autoplay id="bgVideo-wexford">
             <source id="WexfordVideo" src="" type="video/mp4">
         </video>
     </div>
@@ -23,7 +23,8 @@
 
     <!--START OF TEXT LAYER -->
     <div class="wex-text-box-container">
-        <p class="wex-text-box" id="overlay-text-wexford">Wexford Science & Technology's so-called "innovation center"
+        <p class="wex-text-box" id="overlay-text-wexford">
+            Wexford Science & Technology's so-called "innovation center"
             <br>will house ASU programs and science startups at 850 North 5th Street.</p>
         <p class="wex-text-box" id="overlay-text-wexford-02">This is a 227,000 square feet expansion <br>that company
             executives say is expected to add over 500 jobs.</p>
@@ -50,7 +51,7 @@
     <p class="text-box-wex" id="overlay-text-wexford-08"></p> -->
     </div>
     <!--END OF TEXT LAYER -->
-
+</div>
 
 <script>
     //For screensize smaller than 1200px, load mobile video
@@ -233,8 +234,9 @@
 
     function pauseWexfordVid() {
         videoWexford.pause();
-        console.log("video pause")
+        console.log("wexford video pause")
     }
+
     pauseWexfordVid();
 
 </script>
