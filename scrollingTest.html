@@ -1,0 +1,114 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!--Start of external scripts-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.js"></script>
+<!--End of external scripts-->
+
+<style>
+    #bgVideo-test {
+        object-fit: cover;
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+    }
+</style>
+
+<!--START OF VIDEO LAYER-->
+<div class="videoLayer-test">
+    <video muted playsinline autoplay id="bgVideo-test" type="video/mp4" src="videos/WexfordDe.mp4">
+    </video>
+</div>
+
+<div id="pushVideoElement">
+    <p>hello</p>
+</div>
+<!--END OF VIDEO LAYER-->
+
+<script>
+    window.onload = (function ($) {
+        var element = $('#pushVideoElement');
+        var win = $(window);
+        var video = document.querySelector('video');
+
+        win.on('scroll', function () {
+            if (percentageSeen() > 0) {
+                video.style.bottom = percentageSeen() + '%';
+            }
+            else {
+                if (video.style.bottom != 0) {
+                    video.style.bottom = 0;
+                }
+            }
+        });
+
+        function percentageSeen() {
+            var viewportHeight = $(window).height(),
+                scrollTop = win.scrollTop(),
+                elementOffsetTop = element.offset().top,
+                elementHeight = element.height();
+            if (elementOffsetTop > (scrollTop + viewportHeight)) {
+                return 0;
+            } else if ((elementOffsetTop + elementHeight) < scrollTop) {
+                return 100;
+            } else {
+                var distance = (scrollTop + viewportHeight) - elementOffsetTop;
+                var percentage = distance / ((viewportHeight + elementHeight) / 100);
+                percentage = Math.round(percentage);
+                return percentage;
+            }
+        }
+        win.trigger('scroll');
+
+        // select video element
+        var vid = document.getElementById('bgVideo-test');
+        var windowheight = $(window).height() - 20;
+        var scrollpos = window.pageYOffset / 400;
+        var targetscrollpos = scrollpos;
+        var lastScrollPos = 0;
+
+        //
+        console.log("window height =" + windowheight);
+
+        // ---- Values you can tweak: ----
+        var accelamount = 0.25; //How fast the video will try to catch up with the target position. 1 = instantaneous, 0 = do nothing.
+
+        var playPromise = vid.play();
+
+        if (playPromise !== undefined) {
+            playPromise.then(_ => {
+                // We can now safely pause video...
+                vid.pause();
+            })
+                .catch(error => {
+                    // Auto-play was prevented
+                    // Show paused UI.
+                });
+        }
+
+        window.onscroll = function () {
+            //Set the video position that we want to end up at:
+            targetscrollpos = window.pageYOffset / jQuery(document).height() * 40.75;
+            //targetscrollpos = window.pageYOffset / 650;
+        };
+
+        setInterval(function () {
+            //Accelerate towards the target:
+            scrollpos += Math.round(((targetscrollpos - scrollpos) * accelamount) * 1000) / 1000;
+
+            console.log("scrollpos =" + scrollpos);
+            //update video playback
+            // if(scrollpos - lastScrollPos > 0.01 || lastScrollPos - scrollpos > 0.01){
+            if (scrollpos != lastScrollPos) {
+                vid.currentTime = scrollpos;
+                vid.pause();
+                console.log("video paused");
+            }
+            lastScrollPos = scrollpos;
+        }, 40);
+    })(jQuery)
+</script>

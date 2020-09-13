@@ -54,6 +54,7 @@
 </div>
 
 <script>
+  
 
     //For screensize smaller than 1200px, load mobile video
     window.addEventListener("resize", switchBGVideo);
@@ -103,7 +104,7 @@
         console.log("scrollPos =" + e.scrollPos);
         //e.scrollPos comes from Scroll Magic and it is connect with the duration
 
-        setPlaySpeed ();
+        setPlaySpeed();
     });
 
     setInterval(() => {
@@ -238,7 +239,7 @@
     function setPlaySpeed() {
         videoWexford.defaultPlaybackRate = 0;
         videoWexford.pause();
-    } 
+    }
 
-    
+
 </script>
